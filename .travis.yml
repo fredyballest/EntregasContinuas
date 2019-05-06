@@ -1,6 +1,10 @@
 sudo: required
 services:
   - docker
+addons:
+  firefox: latest
+env:
+  - MOZ_HEADLESS=1
 
 before_install:
   - docker pull selenium/node-firefox:3.8.1-francium

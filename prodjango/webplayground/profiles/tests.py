@@ -1,10 +1,6 @@
-from selenium import webdriver
+from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
-options = Options();
-options.add_argument("--headless");
-
-driver = webdriver.Firefox(firefox_options=options);
-
-driver.get("http://www.google.com/");
-driver.quit();
+options = Options()
+options.add_argument('-headless')
+firefox = Firefox(firefox_options=options)
