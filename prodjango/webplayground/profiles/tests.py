@@ -14,3 +14,7 @@ class GrammarlyGeneralTest(unittest.TestCase):
             desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': True}
         )
 
+    def test_example(self):
+        # run tests
+       driver.get("http://askubuntu.com")
+       print driver.page_source.encode('utf-8')  

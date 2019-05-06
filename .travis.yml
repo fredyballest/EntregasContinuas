@@ -11,6 +11,7 @@ before_install:
 
 script:
   - docker run fredyball/django-client python manage.py test
+  - python testeo.py
 
 after_success:
   - echo "LISTO EL POLLO ASADO"
