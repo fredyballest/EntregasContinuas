@@ -5,7 +5,12 @@ addons:
   firefox: latest
 env:
   - MOZ_HEADLESS=1
-
+notifications:
+  email:
+    recipients:
+      - fredy.ballesteros@correounivalle.edu.co
+    on_success: always # default: change
+    on_failure: always # default: always
 before_install:
   - docker pull selenium/node-firefox:3.8.1-francium
   - docker pull selenium/hub:3.8.1-francium
