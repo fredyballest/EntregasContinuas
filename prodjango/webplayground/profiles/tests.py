@@ -1,20 +1,10 @@
-import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
+from selenium.webdriver.firefox.options import Options
 
-class GrammarlyGeneralTest(unittest.TestCase):
+options = Options();
+options.add_argument("--headless");
 
-    def setUp(self):
-        # for dev I'll use only visible browser instead of no-gui one.
-        # but for production, it will use the no-gui one.
-        # self.driver = webdriver.Firefox()
-        self.driver = webdriver.Remote(
-            command_executor='http://127.0.0.1:4444/wd/hub',
-            desired_capabilities={'browserName': 'firefox', 'javascriptEnabled': True}
-        )
+driver = webdriver.Firefox(firefox_options=options,firefox_binary=binary);
 
-    def test_example(self):
-        # run tests
-       driver.get("http://askubuntu.com")
-       print driver.page_source.encode('utf-8')  
+driver.get("http://www.google.com/");
+driver.quit();
