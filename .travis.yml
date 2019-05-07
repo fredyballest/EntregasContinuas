@@ -5,15 +5,7 @@ addons:
   firefox: latest
 env:
   - MOZ_HEADLESS=1
-notifications:
-  email:
-    recipients:
-      - leidy.carvajal.o@correounivalle.edu.co
-      - julian.silva@correounivalle.edu.co
-      - alexander.redondo@correounivalle.edu.co
-      - fredy.ballesteros@correounivalle.edu.co
-    on_success: always # default: change
-    on_failure: always # default: always
+
 before_install:
   - docker build -t fredyball/django-client ./prodjango
 
