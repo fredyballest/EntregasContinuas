@@ -3,4 +3,4 @@ django-ckeditor
 Pillow
 gunicorn==19.6.0
 psycopg2
-selenium
+selenium==3.13.0
