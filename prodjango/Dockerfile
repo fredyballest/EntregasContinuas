@@ -7,8 +7,6 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY ./webplayground /code/
-RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
-    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
 
 # install chromedriver
 RUN apk update
