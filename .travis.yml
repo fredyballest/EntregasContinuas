@@ -1,12 +1,8 @@
 sudo: required
 services:
   - docker
-addons:
-  firefox: latest
-env:
-  - MOZ_HEADLESS=1
 
-before_install:
+  before_install:
   - docker build -t fredyball/django-client ./prodjango
 
 script:
