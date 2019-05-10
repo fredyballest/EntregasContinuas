@@ -9,4 +9,4 @@ script:
   - docker run fredyball/django-client python manage.py test
 
 after_success:
-  - echo "LISTO PRUEBA 1"
+  - echo "LISTO PRUEBA "
