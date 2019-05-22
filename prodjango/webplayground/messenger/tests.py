@@ -1,15 +1,31 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 from .models import Thread, Message
-
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 # Create your tests here.
 class ThreadTestCase(TestCase):
     def setUp(self):
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--no-sandbox')
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--disable-gpu')
+        self.driver = webdriver.Chrome(chrome_options=chrome_options)
+        self.driver.implicitly_wait(10)
+
         self.user1 = User.objects.create_user('user1', None, 'test1234')
         self.user2 = User.objects.create_user('user2', None, 'test1234')
         self.user3 = User.objects.create_user('user3', None, 'test1234')
 
         self.thread = Thread.objects.create()
+    def test_case_functional(self):
+        """Find and click top-right button"""
+        try:
+            self.driver.get('127.0.0.1:8000')
+            el = self.driver.find_element_by_class_name('btn-header')
+            el.click()
+        except NoSuchElementException as ex:
+            self.fail(ex.msg)    
 
     def test_add_users_to_thread(self):
         self.thread.users.add(self.user1, self.user2)
