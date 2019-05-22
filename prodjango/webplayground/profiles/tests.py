@@ -17,12 +17,3 @@ class TestTemplate(unittest.TestCase):
     def tearDown(self):
         """Stop web driver"""
         self.driver.quit()
-
-    def test_case_1(self):
-        """Find and click top-right button"""
-        try:
-            self.driver.get('127.0.0.1:8000')
-            el = self.driver.find_element_by_class_name('btn-header')
-            el.click()
-        except NoSuchElementException as ex:
-            self.fail(ex.msg)

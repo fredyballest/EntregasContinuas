@@ -18,14 +18,6 @@ class ThreadTestCase(TestCase):
         self.user3 = User.objects.create_user('user3', None, 'test1234')
 
         self.thread = Thread.objects.create()
-    def test_case_functional(self):
-        """Find and click top-right button"""
-        try:
-            self.driver.get('127.0.0.1:8000')
-            el = self.driver.find_element_by_class_name('btn-header')
-            el.click()
-        except NoSuchElementException as ex:
-            self.fail(ex.msg)    
 
     def test_add_users_to_thread(self):
         self.thread.users.add(self.user1, self.user2)
